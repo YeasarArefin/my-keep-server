@@ -39,10 +39,7 @@ async function run() {
 
         app.post('/notes', async (req, res) => {
 
-            const date = new Date();
             const data = req.body;
-            data.time = date.toLocaleTimeString();
-            data.date = date.toDateString();
             const result = await notesCollection.insertOne(data);
             res.json(result);
 
